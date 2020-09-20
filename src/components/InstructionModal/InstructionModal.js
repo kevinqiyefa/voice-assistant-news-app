@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Divider, Chip } from '@material-ui/core';
 import SimpleModal from '@material-ui/core/Modal';
 import { v4 as uuidv4 } from 'uuid';
-
+import PropTypes from 'prop-types';
 import useStyles from './styles';
 
 const instructionData = {
@@ -19,7 +19,7 @@ const instructionData = {
   sources: ['CNN', 'Wired', 'BBC News', 'Time', 'IGN', 'Buzzfeed', 'ABC News'],
 };
 
-const Modal = ({ isOpen, setIsOpen }) => {
+const InstructionModal = ({ isOpen, setIsOpen }) => {
   const classes = useStyles();
 
   const { categories, terms, sources } = instructionData;
@@ -98,4 +98,9 @@ const Modal = ({ isOpen, setIsOpen }) => {
   );
 };
 
-export default Modal;
+InstructionModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+};
+
+export default InstructionModal;

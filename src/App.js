@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import alanBtn from '@alan-ai/alan-sdk-web';
-import { InstructionModal } from './components';
+import { InstructionModal, NewsCards } from './components';
 import aiLogo from './assets/images/ai-logo.gif';
 import useStyles from './styles';
 
@@ -38,8 +38,11 @@ function App() {
     <main className={classes.appContainer}>
       <div className={classes.logoContainer}>
         <img src={aiLogo} alt="AI Logo" className={classes.aiLogo} />
-        <InstructionModal isOpen={showInstructions} setIsOpen={setShowInstructions} />
       </div>
+
+      <InstructionModal isOpen={showInstructions} setIsOpen={setShowInstructions} />
+
+      <NewsCards articles={newsArticles} />
     </main>
   );
 }
