@@ -14,7 +14,6 @@ export default makeStyles((theme) => ({
 
   aiLogo: {
     height: '27vmin',
-    borderRadius: '15px',
-    margin: '3% 5%',
+    margin: '1% 5% 3% 5%;',
   },
 }));

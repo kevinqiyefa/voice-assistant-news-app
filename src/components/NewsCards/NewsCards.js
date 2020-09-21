@@ -21,7 +21,7 @@ const NewsCards = ({ articles }) => {
             style={{ display: 'flex' }}
             key={uuidv4()}
           >
-            <NewsCard article={article} />
+            <NewsCard article={article} i={i} />
           </Grid>
         ))}
       </Grid>
