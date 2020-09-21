@@ -12,8 +12,28 @@ export default makeStyles((theme) => ({
     width: '100%',
   },
 
+  infoContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+
+  card: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '50%',
+    padding: '3%',
+    borderRadius: 10,
+    color: 'white',
+    backgroundColor: 'rgba(21, 101, 192)',
+    margin: '0 12px',
+    textAlign: 'center',
+    height: '25vmin',
+  },
+
   aiLogo: {
     height: '27vmin',
-    margin: '1% 5% 3% 5%;',
+    margin: '1% 3% 3% 3%;',
   },
 }));

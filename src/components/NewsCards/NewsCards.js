@@ -27,7 +27,7 @@ const infoCards = [
   },
 ];
 
-const NewsCards = ({ articles }) => {
+const NewsCards = ({ articles, activeArticle }) => {
   const classes = useStyles();
 
   if (!articles.length) {
@@ -78,7 +78,7 @@ const NewsCards = ({ articles }) => {
             style={{ display: 'flex' }}
             key={uuidv4()}
           >
-            <NewsCard article={article} i={i} />
+            <NewsCard article={article} i={i} isActive={i === activeArticle} />
           </Grid>
         ))}
       </Grid>
@@ -88,6 +88,7 @@ const NewsCards = ({ articles }) => {
 
 NewsCards.propTypes = {
   articles: PropTypes.array.isRequired,
+  activeArticle: PropTypes.number.isRequired,
 };
 
 export default NewsCards;

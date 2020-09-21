@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import alanBtn from '@alan-ai/alan-sdk-web';
+import { Typography } from '@material-ui/core';
 import { InstructionModal, NewsCards } from './components';
 import aiLogo from './assets/images/ai-logo.gif';
 import useStyles from './styles';
@@ -60,6 +61,7 @@ function App() {
   //   },
   // ]);
   const [showInstructions, setShowInstructions] = useState(false);
+  const [activeArticle, setActiveArticle] = useState(0);
 
   const classes = useStyles();
 
@@ -70,6 +72,7 @@ function App() {
         switch (command) {
           case 'newHeadlines':
             setNewsArticles(articles);
+            setActiveArticle(-1);
             break;
           case 'showInstructions':
             setShowInstructions(true);
@@ -77,23 +80,42 @@ function App() {
           case 'hideInstructions':
             setShowInstructions(false);
             break;
+          case 'highlight':
+            setActiveArticle((prevA) => prevA + 1);
+            break;
           default:
         }
       },
     });
   }, []);
 
-  console.log(newsArticles);
-
   return (
     <main className={classes.appContainer}>
       <div className={classes.logoContainer}>
+        {newsArticles.length > 0 && (
+          <div className={classes.infoContainer}>
+            <div className={classes.card}>
+              <Typography variant="h6">
+                Try saying: <br />
+                <br />
+                Open article number [2]
+              </Typography>
+            </div>
+            <div className={classes.card}>
+              <Typography variant="h6">
+                Try saying: <br />
+                <br />
+                Go back
+              </Typography>
+            </div>
+          </div>
+        )}
         <img src={aiLogo} alt="AI Logo" className={classes.aiLogo} />
       </div>
 
       <InstructionModal isOpen={showInstructions} setIsOpen={setShowInstructions} />
 
-      <NewsCards articles={newsArticles} />
+      <NewsCards articles={newsArticles} activeArticle={activeArticle} />
     </main>
   );
 }

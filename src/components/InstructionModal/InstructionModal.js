@@ -15,7 +15,7 @@ const instructionData = {
     'Sports',
     'Technology',
   ],
-  terms: ['Donald Trump', 'Bitcoin', 'covid-19', 'Smartphones'],
+  terms: ['Donald Trump', 'Bitcoin', 'Coronavirus', 'Smartphones'],
   sources: ['CNN', 'Wired', 'BBC News', 'Time', 'IGN', 'Buzzfeed', 'ABC News'],
 };
 

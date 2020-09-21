@@ -9,6 +9,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import useStyles from './styles';
 
 const placeholderImg =
@@ -17,6 +18,7 @@ const placeholderImg =
 const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },
   i,
+  isActive,
 }) => {
   const classes = useStyles();
 
@@ -30,7 +32,7 @@ const NewsCard = ({
   };
 
   return (
-    <Card className={classes.card}>
+    <Card className={cx(classes.card, isActive ? classes.activeCard : null)}>
       <CardActionArea href={url} target="_blank">
         <CardMedia
           className={classes.media}
@@ -68,6 +70,7 @@ const NewsCard = ({
 
 NewsCard.propTypes = {
   article: PropTypes.object.isRequired,
+  isActive: PropTypes.bool.isRequired,
 };
 
 export default NewsCard;
