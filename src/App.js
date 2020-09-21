@@ -61,7 +61,7 @@ function App() {
   //   },
   // ]);
   const [showInstructions, setShowInstructions] = useState(false);
-  const [activeArticle, setActiveArticle] = useState(0);
+  const [activeArticle, setActiveArticle] = useState(-1);
 
   const classes = useStyles();
 

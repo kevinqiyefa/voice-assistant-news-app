@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Grow, Typography } from '@material-ui/core';
 import { v4 as uuidv4 } from 'uuid';
@@ -27,8 +27,18 @@ const infoCards = [
   },
 ];
 
+const scrollToRef = (ref) => window.scrollTo(0, ref.offsetTop - 50);
+
 const NewsCards = ({ articles, activeArticle }) => {
   const classes = useStyles();
+  const cardRefs = useRef(Array(articles.length).fill(null));
+
+  useEffect(() => {
+    let curRef = cardRefs.current[activeArticle];
+    if (curRef) {
+      scrollToRef(curRef);
+    }
+  }, [activeArticle]);
 
   if (!articles.length) {
     return (
@@ -78,7 +88,12 @@ const NewsCards = ({ articles, activeArticle }) => {
             style={{ display: 'flex' }}
             key={uuidv4()}
           >
-            <NewsCard article={article} i={i} isActive={i === activeArticle} />
+            <NewsCard
+              article={article}
+              i={i}
+              activeArticle={activeArticle}
+              ref={(el) => (cardRefs.current[i] = el)}
+            />
           </Grid>
         ))}
       </Grid>
