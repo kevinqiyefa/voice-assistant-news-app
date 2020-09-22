@@ -27,7 +27,7 @@ const InstructionModal = ({ isOpen, setIsOpen }) => {
   return (
     <SimpleModal open={isOpen} onClose={() => setIsOpen(false)}>
       <div className={classes.paper}>
-        <Typography variant="h3">Instructions</Typography>
+        <Typography variant="h4">Instructions</Typography>
         <Divider />
         <div className={classes.infoContainer}>
           <Typography variant="h5">News by Categories</Typography>

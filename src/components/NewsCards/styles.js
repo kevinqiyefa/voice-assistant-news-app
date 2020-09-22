@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles({
+export default makeStyles((theme) => ({
   container: {
     width: '100%',
     margin: 0,
@@ -9,7 +9,20 @@ export default makeStyles({
     display: 'flex',
     flexDirection: 'column',
     textAlign: 'center',
+
+    [theme.breakpoints.down('xs')]: {
+      paddingLeft: '0 !important',
+      paddingRight: '0 !important',
+    },
   },
+
+  newsCard: {
+    [theme.breakpoints.down('xs')]: {
+      paddingLeft: '0 !important',
+      paddingRight: '0 !important',
+    },
+  },
+
   card: {
     display: 'flex',
     flexDirection: 'column',
@@ -22,4 +35,4 @@ export default makeStyles({
     borderRadius: 10,
     color: 'white',
   },
-});
+}));

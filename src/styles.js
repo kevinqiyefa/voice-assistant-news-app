@@ -10,12 +10,19 @@ export default makeStyles((theme) => ({
     justifyContent: 'space-around',
     alignItems: 'center',
     width: '100%',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column-reverse',
+      textAlign: 'center',
+    },
   },
 
   infoContainer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+    },
   },
 
   card: {
@@ -30,10 +37,22 @@ export default makeStyles((theme) => ({
     margin: '0 12px',
     textAlign: 'center',
     height: '25vmin',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column-reverse',
+      textAlign: 'center',
+      width: '100%',
+      height: 'initial',
+      '&:nth-of-type(1)': {
+        marginBottom: '12px',
+      },
+    },
   },
 
   aiLogo: {
     height: '27vmin',
     margin: '1% 3% 3% 3%;',
+    [theme.breakpoints.down('xs')]: {
+      height: '35vmin',
+    },
   },
 }));

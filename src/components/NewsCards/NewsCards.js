@@ -86,6 +86,7 @@ const NewsCards = ({ articles, activeArticle }) => {
             md={4}
             lg={3}
             style={{ display: 'flex' }}
+            className={classes.newsCard}
             key={uuidv4()}
           >
             <NewsCard
